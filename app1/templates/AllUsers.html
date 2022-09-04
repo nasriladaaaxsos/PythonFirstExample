@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Hi {{request.session.username}}</p>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Password</th>          
+            <th>See Profile</th>
+            <th>Remove</th>
+            <th>Update</th>
+        </tr>
+        {% for u in AllUsers %}
+        <tr>
+            <td>{{ u.id }}</td>
+            <td>{{ u.username }}</td>
+            <td>{{ u.password }}</td>           
+            <td><a href='Get/{{ u.id }}' alt="See profile"> See Profile </a></td>
+            <td><a href='Remove/{{ u.id }}' alt="See profile"> Remove </a></td>
+            <td><a href='Update/{{ u.id }}' alt="See profile"> Update </a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href='/app1/logout'>Log out</a>
+</body>
+
+</html>
